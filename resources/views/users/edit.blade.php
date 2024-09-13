@@ -70,8 +70,9 @@
                                     </div>
 
                                     <div class="float-right">
-                                        <button type="submit" class="btn btn-primary">Kirim</button>
-                                        <a href="{{ route( 'users') }}" class="btn btn-secondary">Batal</a>
+
+                                        <a href="{{ route( 'users') }}" class="btn btn-secondary">Kembali</a>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>
                                 </form>
                             </div>

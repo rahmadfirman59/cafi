@@ -43,3 +43,12 @@ Route::group(['prefix' => 'roles', 'middleware' => ['auth']], function(){
     Route::post('/update/{id}',[App\Http\Controllers\RolesController::class,'update'])->name('roles.update');
     Route::delete('/delete/{id}',[App\Http\Controllers\RolesController::class,'delete'])->name('roles.destroy');
 });
+
+Route::group(['prefix' => 'departemens', 'middleware' => ['auth']], function(){
+    Route::get('/',[App\Http\Controllers\DepartemenController::class,'index'])->name('departemens');
+    Route::get('/create',[App\Http\Controllers\DepartemenController::class,'create'])->name('departemens.create');
+    Route::post('/store',[App\Http\Controllers\DepartemenController::class,'store'])->name('departemens.store');
+    Route::get('/edit/{id}',[App\Http\Controllers\DepartemenController::class,'edit'])->name('departemens.edit');
+    Route::post('/update/{id}',[App\Http\Controllers\DepartemenController::class,'update'])->name('departemens.update');
+    Route::delete('/delete/{id}',[App\Http\Controllers\DepartemenController::class,'delete'])->name('departemens.destroy');
+});

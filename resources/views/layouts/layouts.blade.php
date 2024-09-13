@@ -31,6 +31,7 @@
                 <ul class="navbar-nav">
                     @if( in_array("users",json_decode(auth()->user()->roles->menu))
                        || in_array("roles",json_decode(auth()->user()->roles->menu))
+                       || in_array("departemens",json_decode(auth()->user()->roles->menu))
 
                     )
                     <li class="dropdown">
@@ -39,14 +40,20 @@
                             <div class="d-sm-none d-lg-inline-block">Master</div></a>
                         <div class="dropdown-menu dropdown-menu-left">
                             @if( in_array("users",json_decode(auth()->user()->roles->menu)) )
-                            <a href="{{ route('users') }}" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> User
-                            </a>
+                                <a href="{{ route('users') }}" class="dropdown-item has-icon">
+                                    <i class="far fa-user"></i> User
+                                </a>
                             @endif
                             @if( in_array("roles",json_decode(auth()->user()->roles->menu)) )
-                            <a href="{{ route('roles') }}" class="dropdown-item has-icon">
-                                <i class="fas fa-lock"></i> Roles
-                            </a>@endif
+                                <a href="{{ route('roles') }}" class="dropdown-item has-icon">
+                                    <i class="fas fa-lock"></i> Roles
+                                </a>
+                            @endif
+                            @if( in_array("departemens",json_decode(auth()->user()->roles->menu)) )
+                                <a href="{{ route('departemens') }}" class="dropdown-item has-icon">
+                                    <i class="fas fa-building"></i> Departemen
+                                </a>
+                            @endif
                         </div>
                     </li>
                     @endif

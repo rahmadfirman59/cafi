@@ -8,9 +8,7 @@
                     <a href="{{ route('roles') }}" class="btn btn-icon"><i class="fas fa-arrow-left"></i></a>
                 </div>
                 <h1>Role</h1>
-
             </div>
-
             <div class="section-body">
                 <div class="section-body">
                     <div class="row">
@@ -51,13 +49,19 @@
                                                             User
                                                         </label>
                                                     </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="departemens" >
+                                                        <label class="form-check-label">
+                                                            Departemen
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer text-right">
-                                        <a href="{{ route('roles') }}" class="btn btn-info">Back</a>
-                                        <button class="btn btn-primary">Submit</button>
+                                        <a href="{{ route('roles') }}" class="btn btn-info">Kembali</a>
+                                        <button class="btn btn-primary">Simpan</button>
                                     </div>
                                 </form>
                             </div>

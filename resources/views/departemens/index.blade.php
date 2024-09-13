@@ -4,24 +4,22 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>User</h1>
+                <h1>Departemen</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('departemens.create') }}" class="btn btn-primary">Tambah</a>
                 </div>
-
             </div>
-
             <div class="section-body">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-12">
                         <div class="card">
                             <div class="card-header">
                                 <div class="card-header-form">
-                                    <form action="{{ route('users') }}" method="get">
+                                    <form action="{{ route('departemens') }}" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="nama" value="{{app('request')->input('nama')}}"">
                                             <div class="input-group-btn">
-                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
@@ -33,28 +31,25 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Hak Akses</th>
                                             <th>Action</th>
                                         </tr>
-                                        @foreach($data as $item)
+                                        @foreach($data as $key => $item)
                                             <tr>
-                                                <td>1</td>
-                                                <td>{{ $item->name }}</td>
-                                                <td>{{ $item->email }}</td>
-                                                <td>{{ $item->roles?->nama }}</td>
+                                                <td>{{ $key + 1 }}</td>
+                                                <td>{{ $item->nama }}</td>
                                                 <td>
-
-                                                    <form action="{{ route('users.destroy',$item->id) }}" method="POST">
-                                                        <a href="{{ route('users.edit',$item->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
-                                                        @csrf
-                                                        @method("DELETE")
-                                                        <a class="btn btn-icon btn-danger show-alert-delete-box"><i class="fas fa-trash" style="color: white"></i></a>
-                                                    </form>
-{{--                                                    <a href="#" class="btn btn-icon btn-danger"><i class="fas fa-trash"></i></a>--}}
+                                                    <div class="card-footer text-right">
+                                                        <form action="{{ route('departemens.destroy',$item->id) }}" method="POST">
+                                                            <a href="{{ route('departemens.edit',$item->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                                                            @csrf
+                                                            @method("DELETE")
+                                                            <a class="btn btn-icon btn-danger show-alert-delete-box"><i class="fas fa-trash" style="color: white"></i></a>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @endforeach
+
                                     </table>
                                 </div>
                             </div>

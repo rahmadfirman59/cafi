@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="card-footer text-right">
-                                {{ $data->links() }}
+                                {!! $data->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>
