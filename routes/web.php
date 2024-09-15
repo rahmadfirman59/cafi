@@ -12,6 +12,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('storage/{folder}/{filename}', function ($folder, $filename) {
+    $path = storage_path('app/' . $folder . '/' . $filename);
+    if (!\Illuminate\Support\Facades\File::exists($path)) {
+        abort(404);
+    }
+    $file = File::get($path);
+    $type = File::mimeType($path);
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+    return $response;
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,4 +62,13 @@ Route::group(['prefix' => 'departemens', 'middleware' => ['auth']], function(){
     Route::get('/edit/{id}',[App\Http\Controllers\DepartemenController::class,'edit'])->name('departemens.edit');
     Route::post('/update/{id}',[App\Http\Controllers\DepartemenController::class,'update'])->name('departemens.update');
     Route::delete('/delete/{id}',[App\Http\Controllers\DepartemenController::class,'delete'])->name('departemens.destroy');
+});
+
+Route::group(['prefix' => 'kendaraans', 'middleware' => ['auth']], function(){
+    Route::get('/',[App\Http\Controllers\KendaraanController::class,'index'])->name('kendaraans');
+    Route::get('/create',[App\Http\Controllers\KendaraanController::class,'create'])->name('kendaraans.create');
+    Route::post('/store',[App\Http\Controllers\KendaraanController::class,'store'])->name('kendaraans.store');
+    Route::get('/edit/{id}',[App\Http\Controllers\KendaraanController::class,'edit'])->name('kendaraans.edit');
+    Route::post('/update/{id}',[App\Http\Controllers\KendaraanController::class,'update'])->name('kendaraans.update');
+    Route::delete('/delete/{id}',[App\Http\Controllers\KendaraanController::class,'delete'])->name('kendaraans.destroy');
 });

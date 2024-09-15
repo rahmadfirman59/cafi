@@ -49,7 +49,7 @@ class DepartemenController extends Controller implements CrudControllerInterface
         $this->departemensServices->delete($id);
 
         return redirect()->route('departemens')
-            ->with('message', $this->sukses());
+            ->with('message', $this->sukseshapus());
     }
 
     public function store(DepartemenRequest $request)

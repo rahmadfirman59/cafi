@@ -4,9 +4,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Role</h1>
+                <h1>Kendaraan</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('roles.create') }}" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('kendaraans.create') }}" class="btn btn-primary">Tambah</a>
                 </div>
             </div>
             <div class="section-body">
@@ -14,9 +14,8 @@
                     <div class="col-12 col-md-6 col-lg-12">
                         <div class="card">
                             <div class="card-header">
-
                                 <div class="card-header-form">
-                                    <form action="{{ route('roles') }}" method="GET">
+                                    <form action="{{ route('departemens') }}" method="GET">
                                         <div class="input-group">
                                             <input type="text" class="form-control" placeholder="Search" name="nama" value="{{app('request')->input('nama')}}"">
                                             <div class="input-group-btn">
@@ -31,17 +30,23 @@
                                     <table class="table table-bordered table-md">
                                         <tr>
                                             <th>#</th>
-                                            <th>Nama</th>
+                                            <th>Nomor Polisi</th>
+                                            <th>Nama Kendaraan</th>
+                                            <th>Merk</th>
+                                            <th>Tahun</th>
                                             <th>Action</th>
                                         </tr>
                                         @foreach($data as $key => $item)
                                             <tr>
                                                 <td>{{ $key + 1 }}</td>
+                                                <td>{{ $item->nomor_polisi }}</td>
                                                 <td>{{ $item->nama }}</td>
+                                                <td>{{ $item->merk }}</td>
+                                                <td>{{ $item->tahun }}</td>
                                                 <td>
                                                     <div class="card-footer text-right">
-                                                        <form action="{{ route('roles.destroy',$item->id) }}" method="POST">
-                                                            <a href="{{ route('roles.edit',$item->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
+                                                        <form action="{{ route('kendaraans.destroy',$item->id) }}" method="POST">
+                                                            <a href="{{ route('kendaraans.edit',$item->id) }}" class="btn btn-icon btn-primary"><i class="far fa-edit"></i></a>
                                                             @csrf
                                                             @method("DELETE")
                                                             <a class="btn btn-icon btn-danger show-alert-delete-box"><i class="fas fa-trash" style="color: white"></i></a>
@@ -50,6 +55,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+
                                     </table>
                                 </div>
                             </div>
@@ -63,3 +69,4 @@
         </section>
     </div>
 @endsection
+

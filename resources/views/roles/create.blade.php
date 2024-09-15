@@ -55,6 +55,29 @@
                                                             Departemen
                                                         </label>
                                                     </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="kendaraans" >
+                                                        <label class="form-check-label">
+                                                            Kendaraan
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="d-block">Transaksi</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="dashboards" >
+                                                        <label class="form-check-label">
+                                                            Pinjam Kendaraan
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="kendaraans" >
+                                                        <label class="form-check-label">
+                                                            Verifikasi Pinjam Kendaraan
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

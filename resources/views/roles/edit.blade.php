@@ -56,6 +56,29 @@
                                                             Departemen
                                                         </label>
                                                     </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="kendaraans" @if( in_array("kendaraans",json_decode($data->menu) ?? []) ) checked @endif >
+                                                        <label class="form-check-label">
+                                                            Kendaraan
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label class="d-block">Transaksi</label>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="oinjam_kendaraans" @if( in_array("oinjam_kendaraans",json_decode($data->menu) ?? []) ) checked @endif  >
+                                                        <label class="form-check-label">
+                                                            Pinjam Kendaraan
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="verifikas_oinjam_kendaraans" @if( in_array("verifikas_oinjam_kendaraans",json_decode($data->menu) ?? []) ) checked @endif >
+                                                        <label class="form-check-label">
+                                                            Verifikasi Pinjam Kendaraan
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
