@@ -67,15 +67,15 @@
                                                 <div class="form-group">
                                                     <label class="d-block">Transaksi</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="dashboards" >
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="permintaan-kendaraans" >
                                                         <label class="form-check-label">
-                                                            Pinjam Kendaraan
+                                                            Permintaan Kendaraan
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="kendaraans" >
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="verifikasi-permintaan-kendaraans" >
                                                         <label class="form-check-label">
-                                                            Verifikasi Pinjam Kendaraan
+                                                            Verifikasi Permintaan Kendaraan
                                                         </label>
                                                     </div>
                                                 </div>

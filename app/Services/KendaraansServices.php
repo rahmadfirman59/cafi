@@ -55,4 +55,9 @@ class KendaraansServices implements CrudServicesInterfaces
         if ($k) $k->delete($id);
         return $k;
     }
+
+    public function all()
+    {
+        return $this->kendaraan->get();
+    }
 }

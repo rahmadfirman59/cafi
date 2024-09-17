@@ -4,9 +4,9 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Role</h1>
+                <h1>Permintaan Kendaraan</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('roles.create') }}" class="btn btn-primary">Tambah</a>
+                    <a href="{{ route('permintaan.kendaraans.create') }}" class="btn btn-primary">Tambah</a>
                 </div>
             </div>
             <div class="section-body">
@@ -32,7 +32,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>Nama</th>
-                                            <th width="50%">Menu</th>
+                                            <th>Menu</th>
                                             <th>Action</th>
                                         </tr>
                                         @foreach($data as $key => $item)

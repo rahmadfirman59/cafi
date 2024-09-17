@@ -68,6 +68,19 @@
                                             @endif
                                         </div>
                                     </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12 col-12">
+                                            <label>Departemen</label>
+                                            <select class="form-control select2" name="departemen_id" >
+                                                @foreach($departemen as $d)
+                                                    <option @if($data->departemen_id == $d->id) selected @endif value="{{$d->id}}">{{$d->nama}}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('role_id'))
+                                                <span class="text-danger">{{ $errors->first('role_id') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
 
                                     <div class="float-right">
 

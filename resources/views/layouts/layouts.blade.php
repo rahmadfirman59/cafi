@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url("stisla/node_modules/dropify/dist/css/dropify.css") }}">
     <link rel="stylesheet" href="{{ url("stisla/node_modules/bootstrap-datepicker/bootstrap-datepicker.css") }}">
     <link rel="stylesheet" href="{{ url("stisla/node_modules/ionicons201/css/ionicons.min.css") }}">
+    <link rel="stylesheet" href="{{ url("stisla/node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css") }}">
 
     @yield('addCss')
 </head>
@@ -36,7 +37,6 @@
                        || in_array("roles",json_decode(auth()->user()->roles->menu))
                        || in_array("departemens",json_decode(auth()->user()->roles->menu))
                        || in_array("kendaraans",json_decode(auth()->user()->roles->menu))
-
                     )
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg ">
@@ -66,30 +66,37 @@
                         </div>
                     </li>
                     @endif
+                    @if( in_array("permintaan-kendaraans",json_decode(auth()->user()->roles->menu))
+                       || in_array("verifikasi-permintaan-kendaraans",json_decode(auth()->user()->roles->menu))
+                    )
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg ">
                             <i class="fas fa-briefcase"></i>
                             <div class="d-sm-none d-lg-inline-block">Transaksi</div></a>
                         <div class="dropdown-menu dropdown-menu-left" style="width: 250px;">
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-
-                                <i class="fas fa-hand-holding"></i></i>Pinjam Kendaraan
-                            </a>
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-                                <i class="fas fa-user-check"></i>Verifikasi Pinjam Kendaraan
-                            </a>
+                            @if( in_array("permintaan-kendaraans",json_decode(auth()->user()->roles->menu)) )
+                                <a href="{{ route('permintaan.kendaraans') }}" class="dropdown-item has-icon">
+                                    <i class="fas fa-hand-holding"></i></i>Permintaan Kendaraan
+                                </a>
+                            @endif
+                            @if( in_array("verifikasi-permintaan-kendaraans",json_decode(auth()->user()->roles->menu)) )
+                                <a href="features-profile.html" class="dropdown-item has-icon">
+                                    <i class="fas fa-user-check"></i>Verifikasi Permintaan Kendaraan
+                                </a>
+                            @endif
                         </div>
                     </li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg ">
-                            <i class="fas fa-clipboard"></i>
-                            <div class="d-sm-none d-lg-inline-block">Laporan</div></a>
-                        <div class="dropdown-menu dropdown-menu-left">
-                            <a href="features-profile.html" class="dropdown-item has-icon">
-                                <i class="far fa-user"></i> Laporan 1
-                            </a>
-                        </div>
-                    </li>
+                    @endif
+{{--                    <li class="dropdown">--}}
+{{--                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg ">--}}
+{{--                            <i class="fas fa-clipboard"></i>--}}
+{{--                            <div class="d-sm-none d-lg-inline-block">Laporan</div></a>--}}
+{{--                        <div class="dropdown-menu dropdown-menu-left">--}}
+{{--                            <a href="features-profile.html" class="dropdown-item has-icon">--}}
+{{--                                <i class="far fa-user"></i> Laporan 1--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
 
                 </ul>
             </div>
@@ -145,6 +152,7 @@
 <script src="{{ url("stisla/node_modules/sweetalert2/sweetalert2.min.js") }}"></script>
 <script src="{{ url("stisla/node_modules/dropify/dist/js/dropify.js") }}"></script>
 <script src="{{ url("stisla/node_modules/bootstrap-datepicker/bootstrap-datepicker.js") }}"></script>
+<script src="{{ url("stisla/node_modules/bootstrap-timepicker/js/bootstrap-timepicker.min.js") }}"></script>
 
 <script>
     $('.show-alert-delete-box').click(function(event){
@@ -180,6 +188,13 @@
     });
     @endif
     $('.dropify').dropify();
+    $(".timepicker").timepicker({
+        showMeridian: false,
+        icons: {
+            up: 'fas fa-chevron-up',
+            down: 'fas fa-chevron-down'
+        }
+    });
 
 </script>
 @yield('addJs')

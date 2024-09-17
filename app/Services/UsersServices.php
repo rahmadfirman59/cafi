@@ -24,7 +24,7 @@ class UsersServices implements CrudServicesInterfaces
     public function search($param)
     {
         // TODO: Implement search() method.
-        $user = $this->user->orderBy('id','desc');
+        $user = $this->user->orderBy('id','asc');
 
         $name = $param['nama'] ?? "";
         if ($name !== '') $user->where('name','like',"%$name%");

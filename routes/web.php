@@ -72,3 +72,12 @@ Route::group(['prefix' => 'kendaraans', 'middleware' => ['auth']], function(){
     Route::post('/update/{id}',[App\Http\Controllers\KendaraanController::class,'update'])->name('kendaraans.update');
     Route::delete('/delete/{id}',[App\Http\Controllers\KendaraanController::class,'delete'])->name('kendaraans.destroy');
 });
+
+Route::group(['prefix' => 'permintaan-kendaraans', 'middleware' => ['auth']], function(){
+    Route::get('/',[App\Http\Controllers\PermintaanKendaraanController::class,'index'])->name('permintaan.kendaraans');
+    Route::get('/create',[App\Http\Controllers\PermintaanKendaraanController::class,'create'])->name('permintaan.kendaraans.create');
+    Route::post('/store',[App\Http\Controllers\PermintaanKendaraanController::class,'store'])->name('permintaan.kendaraans.store');
+    Route::get('/edit/{id}',[App\Http\Controllers\PermintaanKendaraanController::class,'edit'])->name('permintaan.kendaraans.edit');
+    Route::post('/update/{id}',[App\Http\Controllers\PermintaanKendaraanController::class,'update'])->name('permintaan.kendaraans.update');
+    Route::delete('/delete/{id}',[App\Http\Controllers\PermintaanKendaraanController::class,'delete'])->name('permintaan.kendaraans.destroy');
+});

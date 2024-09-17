@@ -54,4 +54,8 @@ class DepartemensServices implements CrudServicesInterfaces
         if ($d) $d->delete($id);
         return $d;
     }
+    public function all()
+    {
+        return $this->departemen->get();
+    }
 }

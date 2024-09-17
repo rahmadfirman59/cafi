@@ -68,9 +68,20 @@
                                             @endif
                                         </div>
                                     </div>
-
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12 col-12">
+                                            <label>Departemen</label>
+                                            <select class="form-control select2" name="role_id" >
+                                                @foreach($departemen as $d)
+                                                    <option value="{{$d->id}}">{{$d->nama}}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('role_id'))
+                                                <span class="text-danger">{{ $errors->first('role_id') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
                                     <div class="float-right">
-
                                         <a href="{{ route( 'users') }}" class="btn btn-secondary">Kembali</a>
                                         <button type="submit" class="btn btn-primary">Simpan</button>
                                     </div>

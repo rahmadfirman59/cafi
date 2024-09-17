@@ -68,15 +68,15 @@
                                                 <div class="form-group">
                                                     <label class="d-block">Transaksi</label>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="oinjam_kendaraans" @if( in_array("oinjam_kendaraans",json_decode($data->menu) ?? []) ) checked @endif  >
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="permintaan-kendaraans" @if( in_array("permintaan-kendaraans",json_decode($data->menu) ?? []) ) checked @endif  >
                                                         <label class="form-check-label">
-                                                            Pinjam Kendaraan
+                                                            Permintaan Kendaraan
                                                         </label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="verifikas_oinjam_kendaraans" @if( in_array("verifikas_oinjam_kendaraans",json_decode($data->menu) ?? []) ) checked @endif >
+                                                        <input class="form-check-input" type="checkbox" name="menu[]" value="verifikasi-permintaan-kendaraans" @if( in_array("verifikasi-permintaan-kendaraans",json_decode($data->menu) ?? []) ) checked @endif >
                                                         <label class="form-check-label">
-                                                            Verifikasi Pinjam Kendaraan
+                                                            Verifikasi Permintaan Kendaraan
                                                         </label>
                                                     </div>
                                                 </div>

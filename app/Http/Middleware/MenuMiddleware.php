@@ -17,12 +17,11 @@ class MenuMiddleware
     {
         $user = auth()->user()->roles->menu ?? [];
 
-
-
         if ($user == []){
             return redirect('login');
         }
         $segmeent = $request->segments(2);
+
 
         if (in_array($segmeent[0], json_decode($user)) ){
             return $next($request);
