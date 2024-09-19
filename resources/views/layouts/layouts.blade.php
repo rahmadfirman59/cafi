@@ -80,7 +80,7 @@
                                 </a>
                             @endif
                             @if( in_array("verifikasi-permintaan-kendaraans",json_decode(auth()->user()->roles->menu)) )
-                                <a href="features-profile.html" class="dropdown-item has-icon">
+                                <a href="{{ route('verifikasi.permintaan.kendaraans') }}" class="dropdown-item has-icon">
                                     <i class="fas fa-user-check"></i>Verifikasi Permintaan Kendaraan
                                 </a>
                             @endif

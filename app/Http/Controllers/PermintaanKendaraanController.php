@@ -21,6 +21,7 @@ class PermintaanKendaraanController extends Controller implements CrudController
     {
         // TODO: Implement index() method.
         $data = $this->permintaanKendaraansServices->search($request);
+//        dd($data);
         return view('permintaan-kendaraan.index')
             ->with('data',$data);
 
@@ -40,11 +41,22 @@ class PermintaanKendaraanController extends Controller implements CrudController
     public function edit($id)
     {
         // TODO: Implement edit() method.
+        $kendaraan = $this->kendaraansServices->all();
+        $data = $this->permintaanKendaraansServices->find($id);
+
+        return view('permintaan-kendaraan.edit')
+            ->with('kendaraan',$kendaraan)
+            ->with('data',$data);
     }
 
     public function delete($id)
     {
         // TODO: Implement delete() method.
+
+
+        $this->permintaanKendaraansServices->delete($id);
+        return redirect()->route('permintaan.kendaraans')
+            ->with('message', $this->sukseshapus());
     }
 
     public function store(Request $request)

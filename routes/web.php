@@ -81,3 +81,9 @@ Route::group(['prefix' => 'permintaan-kendaraans', 'middleware' => ['auth']], fu
     Route::post('/update/{id}',[App\Http\Controllers\PermintaanKendaraanController::class,'update'])->name('permintaan.kendaraans.update');
     Route::delete('/delete/{id}',[App\Http\Controllers\PermintaanKendaraanController::class,'delete'])->name('permintaan.kendaraans.destroy');
 });
+Route::group(['prefix' => 'verifikasi-permintaan-kendaraans', 'middleware' => ['auth']], function(){
+    Route::get('/',[App\Http\Controllers\VerifikasiPermintaanKendaraanController::class,'index'])->name('verifikasi.permintaan.kendaraans');
+    Route::get('/detail/{id}',[App\Http\Controllers\VerifikasiPermintaanKendaraanController::class,'detail'])->name('verifikasi.permintaan.kendaraans.detail');
+    Route::post('/update/{id}',[App\Http\Controllers\VerifikasiPermintaanKendaraanController::class,'update'])->name('verifikasi.permintaan.kendaraans.update');
+
+});

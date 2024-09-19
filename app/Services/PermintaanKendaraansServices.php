@@ -23,7 +23,16 @@ class PermintaanKendaraansServices implements CrudServicesInterfaces
     public function search($param)
     {
         //
+
+        $role = auth()->user()->roles;
+//        dd($role);
         $p = $this->permintaanKendaraan->orderBy('id','asc');
+
+        if ($role->id != 1)
+        {
+            $p->where("user_id",'=',auth()->user()->id);
+        }
+        $p = $p->with(['user','kendaraan']);
 
         return $p->paginate(10);
     }
